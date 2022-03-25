@@ -7,6 +7,10 @@
 </head>
 <body>
 
+<a href = "index.php">Product Stock Search<a>
+<a href = "orders.php">Order Search<a>
+<a href = "enter.php">Enter an Order<a>
+
 <section class="section-a">
   <div class="container">
     <div class="container-a">
@@ -52,3 +56,19 @@ if (isset($_POST["productSubmit"])) {
 	}
 }
 ?>
+
+      </div>
+    </div>
+  </div>
+</section>
+<!-- 
+<a href = "index.php">Product Stock Search<a>
+<a href = "orders.php">Order Search<a>
+<br><br>
+<form method="post">
+<label>Product Search</label>
+<input type="text" name="productSearch">
+<input type="submit" name="productSubmit">
+</form> -->
+</body>
+</html>
