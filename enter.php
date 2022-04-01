@@ -4,9 +4,10 @@
 	<title>Enter an Order</title>
 </head>
 <body>
-<a href = "index.php">Product Stock Search<a>
-<a href = "orders.php">Order Search<a>
-<a href = "enter.php">Enter an Order<a>
+<a href = "index.php">Product Stock Search</a>
+<a href = "orders.php">Order Search</a>
+<a href = "enter.php">Enter an Order</a>
+<a href = "upload.php">Upload a Custom Product</a>
 
 <br><br>
 
