@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cross-Site Scripting (XSS) Attacks</title>
+    <link rel="stylesheet" href="upload.css" />
+    <script src="upload.js" defer></script>
+  </head>
+  <body>
+  	<center>
+  	<a href = "index.php">Product Search</a>
+	<a href = "orders.php">Order Search</a>
+	<a href = "enter.php">Enter an Order</a>
+	<a href = "upload.html">Upload a Custom Product</a>
+	</center>
+    <section id="user-input">
+    <center><h2>Custom Product</h2></center>
+    <p>Welcome to the custom product page. Here, you can submit a blueprint for a custom design. Feel free to leave additional notes and your contact 		information in the message section. We will get back to you with timelines and pricing within 3-5 business days.</p>
+      <form>
+        <div class="form-control">
+          <label for="user-message">Notes</label>
+          <textarea id="user-message" name="user-message"></textarea>
+        </div>
+        <div class="form-control">
+          <label for="message-image">Design URL</label>
+          <input type="text" id="message-image" name="message-image" />
+        </div>
+        <button type="submit">Submit Design</button>
+      </form>
+    </section>
+    <section id="user-messages">
+      <ul></ul>
+    </section>
+  </body>
+</html>
