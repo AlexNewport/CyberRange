@@ -1,34 +1,46 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<title>Order Search</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-<a href = "index.php">Product Stock Search</a>
-<a href = "orders.php">Order Search</a>
-<a href = "enter.php">Enter an Order</a>
-<a href = "upload.php">Upload a Custom Product</a>
-
-<br><br>
-
-<form method="post">
-<label>Order Search</label>
-<input type="text" name="orderSearch">
-<input type="submit" name="orderSubmit">
-</form>
-</body>
-</html>
-
-<?php
+<section class="section-a">
+  <div class="container">
+    <div class="container-a">
+      <div class="overlay">
+        <div class="container-ab">
+          <h1>Order Search</h1>
+          <p>
+            Made for the testing of SQL Injections
+          </p>
+        </div>
+      </div>
+    </div>
+	
+    <div class="container-b">
+     	<div class="container-ba">
+     	
+    	<a href = "index.php">Product Search</a>
+	<a href = "orders.php">Order Search</a>
+	<a href = "enter.php">Enter an Order</a>
+	<a href = "upload.html">Upload a Custom Product</a>
+        <form method="post">
+        	Order Search: <input type="text" name="orderSearch">
+        	<button class="btn-primary" type="submit" name="orderSubmit">Submit</button>
+        </form>
+        <?php
 if (isset($_POST["orderSubmit"])) {
 	$test = False;
 	
 	$str = $_POST["orderSearch"];
 	
-	$con = new PDO("mysql:host = localhost;dbname=Search", 'citadmin','citadmin');
+	$con = new PDO("mysql:host = localhost; dbname=Search", 'citadmin','citadmin');
 	$sql = "SELECT * FROM Orders WHERE orderId = '$str' OR employeeId = '$str'
-		OR productId = '$str' OR clientId = '$str'";
+		OR productId = '$str' OR clientId = '$str' OR date = '$str';";
 	
+  	print "<div class='table-con'>";
 	print "<table border = '1'>";
 	foreach ($con -> query($sql) as $row) {
 		if ($test == False)
@@ -41,6 +53,7 @@ if (isset($_POST["orderSubmit"])) {
 	}
 	
 	print "</table>";
+  print "</div>";
 	
 	if ($test == False) {
 		echo "No matches found";

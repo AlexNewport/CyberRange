@@ -11,6 +11,10 @@ body {
   font-size: 1.1rem;
 }
 
+label {
+	vertical-align: top;
+}
+
 h1 {
   font-size: 2.6rem;
   text-align: center;
@@ -52,7 +56,7 @@ p {
   align-items: center;
   height: 100%;
   margin: auto;
-  background: url('/imgs/imgs/pexels-elevate-1267338.jpg') no-repeat center
+  background: url("imgs/image.jpg") no-repeat center
     center/cover;
 }
 
@@ -67,7 +71,7 @@ p {
 }
 
 .container-ab {
-  width: 400px;
+  width: 600px;
 }
 
 form {
@@ -75,8 +79,7 @@ form {
   margin-bottom: 15px;
 }
 
-.container-ab h1,
-p {
+.container-ab h1, p {
   color: #fff;
 }
 
@@ -109,13 +112,15 @@ p {
 
 .table-con {
   overflow: auto;
+  width: 650px;
+  height: 250px;
 }
 
 table {
   font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif,
     'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Catamaran',
     sans-serif;
-  width: 400px;
+  width: 650px;
   border: none;
   /* border-left: none;
   border-right: none;
@@ -144,6 +149,32 @@ tr {
 .row {
   font-size: 1.5rem;
   font-weight: bold;
+}
+
+#user-messages ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.message-item p {
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  color: black;
+}
+
+.message-image {
+  width: 50px;
+  height: 50px;
+  margin-right: 1rem;
+}
+
+.message-item img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
 }
 
 @media (max-width: 920px) {
@@ -177,7 +208,7 @@ tr {
     gap: 1px;
     align-items: center;
     margin: auto;
-    background: url('../imgs/pexels-elevate-1267338.jpg') no-repeat center
+    background: url("imgs/image.jpg") no-repeat center
       center/cover;
   }
 

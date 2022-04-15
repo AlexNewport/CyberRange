@@ -1,22 +1,32 @@
-const userMessages = [];
+count = Object.keys(localStorage).length;
 
 const userMessageForm = document.querySelector('form');
 const userMessagesList = document.querySelector('ul');
 
 function renderMessages() {
+
   let messageItems = '';
-  for (const message of userMessages) {
-    messageItems = `
+  const userMessages = [];
+  for (i = Object.keys(localStorage).length; i > 0; i--) {  
+ 	userMessages.push({
+    		text: localStorage.getItem("key" + i),
+    		image: localStorage.getItem("image" + i),
+  	});
+  }
+  for (const message of userMessages)
+  	if (message.text != null) {
+  	messageItems = `
       ${messageItems}
       <li class="message-item">
         <div class="message-image">
-          <img src="${message.image}" alt="${message.text}">
+          <img src='${message.image}' alt='Error: image not found'>
         </div>
         <p>${message.text}</p>
       </li>
     `;
-  }
+    }
 
+	
   userMessagesList.innerHTML = messageItems;
 }
 
@@ -36,12 +46,10 @@ function formSubmitHandler(event) {
     alert('Please insert a valid message and image.');
     return;
   }
-
-  userMessages.push({
-    text: userMessage,
-    image: imageUrl,
-  });
-
+	count++;
+	localStorage.setItem("key" + count, userMessage);
+	localStorage.setItem("image" + count, imageUrl);
+	
   userMessageInput.value = '';
   messageImageInput.value = '';
 
@@ -49,3 +57,7 @@ function formSubmitHandler(event) {
 }
 
 userMessageForm.addEventListener('submit', formSubmitHandler);
+
+window.addEventListener('load', (event) => {
+  renderMessages();
+});
