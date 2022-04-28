@@ -1,8 +1,10 @@
+//localStorage.clear(); //uncomment this when you need to clear a site-breaking attack
+
 count = Object.keys(localStorage).length;
 
+document.cookie = "login = MyUsername88, Passw0rd; expires = 01 Jan 2050 00:00:00 UTC; path=/";
 const userMessageForm = document.querySelector('form');
 const userMessagesList = document.querySelector('ul');
-
 function renderMessages() {
 
   let messageItems = '';
@@ -26,7 +28,6 @@ function renderMessages() {
     `;
     }
 
-	
   userMessagesList.innerHTML = messageItems;
 }
 
@@ -56,8 +57,12 @@ function formSubmitHandler(event) {
   renderMessages();
 }
 
-userMessageForm.addEventListener('submit', formSubmitHandler);
+function resetData(event) {
+  event.preventDefault();
+  localStorage.clear();
+  document.location.reload(true);
+}
 
-window.addEventListener('load', (event) => {
-  renderMessages();
-});
+userMessageForm.addEventListener('submit', formSubmitHandler);
+userMessageForm.addEventListener('reset',resetData);
+window.addEventListener('load', (event) => {renderMessages();});
